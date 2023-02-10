@@ -16,27 +16,27 @@ function sortedSquaredArray(array) {
 //TIME: O(n) - Goping through array once.
 //SPACE: O(n) - creating an array the size of aray
 function sortedSquaredArray(array) {
-  let sortedSquares = [];
+  let newArr = [];
 
   for (var i = 0; i < array.length; i++) {
-    sortedSquares[i] = 0;
+    newArr[i] = 0;
   }
 
-  let smallerValueIdx = 0;
-  let largerValueIdx = array.length - 1;
+  let smallIndex = 0;
+  let largeIndex = array.length - 1;
 
   for (var i = array.length - 1; i >= 0; i--) {
-    let smallVal = array[smallerValueIdx];
-    let largeVal = array[largerValueIdx];
+    let small = array[smallIndex];
+    let large = array[largeIndex];
 
-    if (Math.abs(smallVal) > Math.abs(largeVal)) {
-      sortedSquares[i] = smallVal * smallVal;
-      smallerValueIdx++;
+    if (Math.abs(small) > Math.abs(large)) {
+      newArr[i] = small * small;
+      smallIndex++;
     } else {
-      sortedSquares[i] = largeVal * largeVal;
-      largerValueIdx--;
+      newArr[i] = large * large;
+      largeIndex--;
     }
   }
 
-  return sortedSquares;
+  return newArr;
 }
